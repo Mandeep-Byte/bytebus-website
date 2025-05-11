@@ -1,0 +1,860 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="BYTE BUS LLP - Leading IT infrastructure and system integration company in India">
+    <meta name="keywords" content="IT infrastructure, system integration, data centers, security solutions, BYTE BUS LLP">
+    <meta name="author" content="BYTE BUS LLP">
+    <title>BYTE BUS LLP - System Integrators</title>
+    <style>
+        /*
+         * BYTE BUS LLP - Hybrid Responsive Architecture
+         * 
+         * ARCHITECTURE: Strategic Independence with Responsive Flexibility
+         * 
+         * CORE PRINCIPLES:
+         * 1. Critical layout elements use independent rules (header, grids)
+         * 2. Typography and spacing use responsive scaling
+         * 3. Three main breakpoints: Mobile (320px), Tablet (768px), Desktop (1024px)
+         * 4. Enhanced support for in-between devices
+         * 
+         * BREAKPOINT STRATEGY:
+         * - Mobile: 320px - 767px
+         * - Tablet: 768px - 1023px
+         * - Desktop: 1024px+
+         * 
+         * FUTURE-READY CONSIDERATIONS:
+         * - CSS Custom Properties for easy theming
+         * - Container queries ready structure
+         * - Scalable spacing system
+         * - Modular component approach
+         */
+        
+        /* CSS Custom Properties */
+        :root {
+            /* Colors */
+            --primary-dark: #1e2d4a;
+            --primary-light: #f5e6b6;
+            --accent-gold: #e5d49f;
+            --accent-light: #faf3d4;
+            --bg-light: #f5f5f5;
+            --card-bg: #f9f9f9;
+            --text-dark: #333;
+            --white: #ffffff;
+            
+            /* Typography Scale */
+            --font-base: 16px;
+            --font-scale-small: 0.875;
+            --font-scale-medium: 1.125;
+            --font-scale-large: 1.25;
+            --font-scale-xlarge: 1.5;
+            --font-scale-xxlarge: 2.5;
+            
+            /* Spacing Scale */
+            --space-xs: 0.5rem;
+            --space-s: 0.75rem;
+            --space-m: 1rem;
+            --space-l: 1.5rem;
+            --space-xl: 2rem;
+            --space-xxl: 3rem;
+            --space-xxxl: 4rem;
+            
+            /* Component Sizes */
+            --logo-size: 50px;
+            --logo-size-mobile: 40px;
+            --max-width: 1200px;
+            --border-radius: 8px;
+            --border-radius-large: 10px;
+            
+            /* Transition */
+            --transition-fast: 0.2s ease;
+            --transition-normal: 0.3s ease;
+        }
+        
+        /* Reset and Base Styles */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+            font-size: var(--font-base);
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+        }
+        
+        /* Responsive Typography System */
+        .text-center { text-align: center; }
+        .text-justify { text-align: justify; }
+        
+        /* Base Component Styles */
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 var(--space-xl);
+        }
+        
+        .section {
+            margin: 0 auto;
+            padding: var(--space-xxxl) var(--space-xl);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: var(--space-xxl);
+            color: var(--primary-dark);
+        }
+        
+        /* Header - Strategic Independence */
+        .header {
+            background-color: var(--primary-dark);
+            color: var(--primary-light);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .nav-container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 var(--space-xl);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            min-height: 60px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: var(--space-m);
+        }
+        
+        .logo img {
+            width: var(--logo-size);
+            height: var(--logo-size);
+            object-fit: contain;
+        }
+        
+        /* Navigation - Responsive with Independence */
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: var(--space-xl);
+        }
+        
+        nav a {
+            color: var(--primary-light);
+            text-decoration: none;
+            transition: color var(--transition-normal);
+            cursor: pointer;
+            padding: var(--space-xs);
+            position: relative;
+        }
+        
+        nav a:hover {
+            color: var(--accent-light);
+        }
+        
+        nav a.active {
+            color: var(--accent-light);
+            font-weight: bold;
+        }
+        
+        nav a.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--accent-light);
+        }
+        
+        /* Main Content - Responsive Base */
+        .main-content {
+            margin-top: 80px;
+            padding-top: var(--space-xl);
+        }
+        
+        /* Common Card Styles */
+        .card {
+            background-color: var(--white);
+            border-radius: var(--border-radius-large);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: var(--space-xl);
+            margin-bottom: var(--space-xl);
+        }
+        
+        /* Grid System - Future Ready */
+        .grid {
+            display: grid;
+            gap: var(--space-xl);
+            align-items: center;
+        }
+        
+        .grid-auto-fit {
+            grid-template-columns: repeat(auto-fit, minmax(var(--grid-min-width, 300px), 1fr));
+        }
+        
+        /* Image Base Styles */
+        .responsive-image {
+            object-fit: contain;
+            transition: filter var(--transition-normal);
+        }
+        
+        .grayscale {
+            filter: grayscale(100%);
+        }
+        
+        .grayscale:hover {
+            filter: none;
+        }
+        
+        /* Utility Classes */
+        .external-link {
+            color: #ddd;
+            text-decoration: underline;
+            cursor: pointer;
+            transition: color var(--transition-normal);
+        }
+        
+        .external-link:hover {
+            color: var(--primary-light);
+        }
+        
+        /* Desktop-First Approach (1024px+) */
+        @media (min-width: 1024px) {
+            .section-title {
+                font-size: calc(var(--font-scale-xxlarge) * 1rem);
+            }
+            
+            .company-name {
+                font-size: calc(var(--font-scale-xlarge) * 1rem);
+            }
+            
+            .tagline {
+                font-size: calc(var(--font-scale-small) * 1rem);
+            }
+            
+            /* Desktop-specific layouts */
+            .grid-desktop-2 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .grid-desktop-3 {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .grid-desktop-auto {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+            
+            .contact-title {
+                font-size: calc(var(--font-scale-xxlarge) * 1rem);
+            }
+        }
+        
+        /* Tablet Optimization (768px - 1023px) */
+        @media (min-width: 768px) and (max-width: 1023px) {
+            .nav-container {
+                padding: var(--space-s) var(--space-l);
+            }
+            
+            .section {
+                padding: var(--space-xxl) var(--space-l);
+            }
+            
+            .section-title {
+                font-size: calc(var(--font-scale-large) * 1.5rem);
+            }
+            
+            .company-name {
+                font-size: calc(var(--font-scale-medium) * 1rem);
+            }
+            
+            .logo img {
+                width: 45px;
+                height: 45px;
+            }
+            
+            .grid-tablet-1 {
+                grid-template-columns: 1fr;
+            }
+            
+            .grid {
+                gap: var(--space-l);
+            }
+        }
+        
+        /* Mobile-Specific Independence (max-width: 767px) */
+        @media (max-width: 767px) {
+            :root {
+                --space-xxxl: 2.5rem;
+                --space-xxl: 2rem;
+                --space-xl: 1rem;
+            }
+            
+            .header {
+                padding: var(--space-xs) 0;
+            }
+            
+            .nav-container {
+                flex-direction: column;
+                gap: var(--space-xs);
+                padding: var(--space-s) var(--space-l);
+                align-items: center;
+            }
+            
+            .logo img {
+                width: var(--logo-size-mobile);
+                height: var(--logo-size-mobile);
+            }
+            
+            .company-name {
+                font-size: calc(var(--font-scale-medium) * 1rem);
+            }
+            
+            .tagline {
+                font-size: calc(var(--font-scale-small) * 1rem);
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: var(--space-s);
+            }
+            
+            nav a {
+                font-size: calc(var(--font-scale-small) * 1rem);
+                padding: var(--space-xs);
+            }
+            
+            .main-content {
+                margin-top: 105px;
+            }
+            
+            .section {
+                scroll-padding-top: calc(105px + var(--space-l));
+            }
+            
+            .section-title {
+                font-size: calc(var(--font-scale-large) * 1rem);
+                margin-bottom: var(--space-l);
+            }
+            
+            .card {
+                padding: var(--space-l);
+                margin-bottom: var(--space-l);
+                border-radius: var(--border-radius);
+            }
+            
+            .grid {
+                gap: var(--space-l);
+            }
+            
+            .grid-mobile-1 {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Ultra-Small Devices (max-width: 480px) */
+        @media (max-width: 480px) {
+            :root {
+                --font-base: 15px;
+                --space-xl: 0.75rem;
+                --space-l: 1rem;
+            }
+            
+            .container {
+                padding: 0 var(--space-l);
+            }
+            
+            .section {
+                padding: var(--space-xxl) var(--space-l);
+            }
+            
+            .grid {
+                gap: var(--space-m);
+            }
+        }
+        
+        /* Component-Specific Styles */
+        .about-section {
+            --grid-min-width: 300px;
+        }
+        
+        .info-card {
+            background-color: var(--card-bg);
+            padding: var(--space-l);
+            border-radius: var(--border-radius);
+            border-left: 4px solid var(--primary-dark);
+        }
+        
+        .info-card h3 {
+            color: var(--primary-dark);
+            margin-bottom: var(--space-m);
+        }
+        
+        .values-section .grid {
+            --grid-min-width: 250px;
+        }
+        
+        .value-card {
+            text-align: center;
+            padding: var(--space-l);
+            background-color: var(--bg-light);
+            border-radius: var(--border-radius);
+            border: 1px solid var(--primary-dark);
+            transition: transform var(--transition-normal), background-color var(--transition-normal);
+        }
+        
+        .value-card:hover {
+            transform: translateY(-5px);
+            background-color: var(--primary-dark);
+            color: var(--primary-light);
+        }
+        
+        .value-icon {
+            font-size: 2.5rem;
+            margin-bottom: var(--space-m);
+            color: var(--accent-gold);
+            display: inline-block;
+            width: 60px;
+            height: 60px;
+            line-height: 60px;
+        }
+        
+        .value-card:hover .value-icon {
+            color: var(--primary-light);
+        }
+        
+        .clients-grid,
+        .partners-grid {
+            --grid-min-width: 200px;
+        }
+        
+        @media (max-width: 767px) {
+            .clients-grid,
+            .partners-grid {
+                --grid-min-width: 150px;
+            }
+        }
+        
+        .client-logo,
+        .partner-logo {
+            height: 80px;
+            margin: 0 auto;
+        }
+        
+        @media (max-width: 767px) {
+            .client-logo,
+            .partner-logo {
+                height: 60px;
+            }
+        }
+        
+        .contact-section {
+            background-color: var(--primary-dark);
+            color: var(--white);
+            border-radius: var(--border-radius-large);
+            padding: var(--space-xl);
+        }
+        
+        .contact-title {
+            text-align: center;
+            color: var(--white);
+            margin-bottom: var(--space-xl);
+        }
+        
+        .contact-grid {
+            --grid-min-width: 300px;
+        }
+        
+        @media (max-width: 767px) {
+            .contact-grid {
+                --grid-min-width: 100%;
+            }
+        }
+        
+        .contact-info h3 {
+            color: var(--primary-light);
+            margin-bottom: var(--space-m);
+        }
+        
+        .qr-code {
+            text-align: center;
+            margin-top: var(--space-xl);
+        }
+        
+        .qr-code img {
+            width: 150px;
+            height: 150px;
+            background-color: var(--white);
+            padding: 10px;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+        }
+        
+        @media (max-width: 767px) {
+            .qr-code img {
+                width: 120px;
+                height: 120px;
+            }
+        }
+        
+        footer {
+            background-color: var(--primary-dark);
+            color: var(--primary-light);
+            text-align: center;
+            padding: var(--space-xl) 0;
+            margin-top: var(--space-xxxl);
+        }
+        
+        /* Animation & Transitions */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Print Styles */
+        @media print {
+            .header {
+                position: static;
+                box-shadow: none;
+            }
+            
+            .main-content {
+                margin-top: 0;
+            }
+            
+            .section {
+                padding: var(--space-l);
+            }
+            
+            .external-link {
+                color: var(--text-dark);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="images/logo.png" alt="BYTE BUS LLP Logo">
+                <div>
+                    <div class="company-name">BYTE BUS LLP</div>
+                    <div class="tagline">SYSTEM INTEGRATORS</div>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#values" class="nav-link">Values</a></li>
+                    <li><a href="#clients" class="nav-link">Clients</a></li>
+                    <li><a href="#partners" class="nav-link">Partners</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                    <li><a onclick="window.open('https://support.bytebus.in/', '_blank')">Support</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <section id="about" class="section">
+            <h1 class="section-title">About BYTE BUS LLP</h1>
+            <div class="about-section card">
+                <p class="text-center" style="font-size: 1.1rem; margin-bottom: 2rem;">
+                    Established in 2023 and headquartered in New Delhi, BYTE BUS specializes in cutting-edge IT infrastructure, 
+                    system integration, data centers and integrated security solutions.
+                </p>
+                
+                <div class="company-info grid grid-auto-fit">
+                    <div class="info-card">
+                        <h3>PURPOSE</h3>
+                        <p class="text-justify">To help businesses and individuals thrive in a connected world by providing secure, innovative IT 
+                        infrastructure that fosters digital transformation and sustainable growth while making a lasting impact 
+                        on communities and the environment.</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h3>VISION</h3>
+                        <p class="text-justify">To be a global leader in IT infrastructure and system integration, delivering innovative, secure and 
+                        sustainable solutions that empower businesses to thrive in an increasingly connected and digital world. 
+                        We envision a future where our cutting-edge technology drives operational excellence, fosters growth and 
+                        enhances security for organizations of all sizes.</p>
+                    </div>
+                </div>
+                
+                <p class="text-center" style="margin-top: 2rem;">
+                    With a dedicated team and service centers across India, we deliver tailored solutions to government and 
+                    private sectors, helping organizations thrive in an interconnected world while championing sustainability, 
+                    integrity and excellence.
+                </p>
+            </div>
+        </section>
+
+        <section id="values" class="section">
+            <h2 class="section-title">VALUES</h2>
+            <div class="values-section card">
+                <h3 class="text-center" style="color: var(--primary-dark); margin-bottom: 1rem; font-size: 1.5rem;">ELITE</h3>
+                <div class="values-grid grid grid-auto-fit">
+                    <div class="value-card">
+                        <div class="value-icon">★</div>
+                        <h4>Excellence</h4>
+                        <p>We strive for excellence in every aspect of our business, from service delivery to customer support.</p>
+                    </div>
+                    
+                    <div class="value-card">
+                        <div class="value-icon">◆</div>
+                        <h4>Leadership</h4>
+                        <p>We lead with integrity and vision, setting the standard in our industry.</p>
+                    </div>
+                    
+                    <div class="value-card">
+                        <div class="value-icon">◉</div>
+                        <h4>Integrity</h4>
+                        <p>We conduct our business with honesty, transparency and ethics.</p>
+                    </div>
+                    
+                    <div class="value-card">
+                        <div class="value-icon">◎</div>
+                        <h4>Teamwork</h4>
+                        <p>We foster a collaborative environment where teamwork drives success.</p>
+                    </div>
+                    
+                    <div class="value-card">
+                        <div class="value-icon">▶</div>
+                        <h4>Efficiency</h4>
+                        <p>We prioritize efficiency and accessibility in our operations to deliver timely and reliable solutions to our clients.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="clients" class="section">
+            <h2 class="section-title">OUR PROJECTS / CLIENTS</h2>
+            <div class="clients-section">
+                <div class="clients-grid grid grid-auto-fit">
+                    <img src="images/clients/ai-engineering.png" alt="AI Engineering Services Limited" class="client-logo responsive-image grayscale">
+                    <img src="images/clients/ministry-defence.png" alt="Ministry of Defence" class="client-logo responsive-image grayscale">
+                    <img src="images/clients/nat-grid.png" alt="NAT Grid" class="client-logo responsive-image grayscale">
+                    <img src="images/clients/indian-airforce.png" alt="Indian Air Force" class="client-logo responsive-image grayscale">
+                    <img src="images/clients/indian-army.png" alt="Indian Army" class="client-logo responsive-image grayscale">
+                    <img src="images/clients/indian-navy.png" alt="Indian Navy" class="client-logo responsive-image grayscale">
+                    <img src="images/clients/csir-ceeri.png" alt="CSIR-CEERI" class="client-logo responsive-image grayscale">
+                    <img src="images/clients/ntpc.png" alt="NTPC" class="client-logo responsive-image grayscale">
+                    <img src="images/clients/india-optel.png" alt="India Optel Limited" class="client-logo responsive-image grayscale">
+                </div>
+            </div>
+        </section>
+
+        <section id="partners" class="section">
+            <h2 class="section-title">OUR PARTNERS</h2>
+            <div class="partners-section">
+                <div class="partners-grid grid grid-auto-fit">
+                    <img src="images/partners/cisco.png" alt="Cisco" class="partner-logo responsive-image grayscale">
+                    <img src="images/partners/ingram-micro.png" alt="Ingram Micro" class="partner-logo responsive-image grayscale">
+                    <img src="images/partners/precision-biometric.png" alt="Precision Biometric" class="partner-logo responsive-image grayscale">
+                    <img src="images/partners/securenet.png" alt="SecureNet" class="partner-logo responsive-image grayscale">
+                    <img src="images/partners/td-synnex.png" alt="TD Synnex" class="partner-logo responsive-image grayscale">
+                    <img src="images/partners/hi-focus.png" alt="Hi-Focus" class="partner-logo responsive-image grayscale">
+                    <img src="images/partners/hewlett-packard.png" alt="Hewlett Packard Enterprise" class="partner-logo responsive-image grayscale">
+                    <img src="images/partners/voltriq.png" alt="Voltriq" class="partner-logo responsive-image grayscale">
+                    <img src="images/partners/realtime.png" alt="Realtime" class="partner-logo responsive-image grayscale">
+                    <img src="images/partners/d-link.png" alt="D-Link" class="partner-logo responsive-image grayscale">
+                    <img src="images/partners/microtek.png" alt="Microtek" class="partner-logo responsive-image grayscale">
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section">
+            <div class="contact-section">
+                <h2 class="contact-title">CONTACT DETAILS</h2>
+                <div class="contact-grid grid grid-auto-fit">
+                    <div class="contact-info">
+                        <h3>Address</h3>
+                        <p>1st, 247, MIG Flats, Metro App, Outer Ring Road, Jahangirpuri, North West Delhi - 110033.</p>
+                    </div>
+                    
+                    <div class="contact-info">
+                        <h3>Service Centers</h3>
+                        <p>PAN India service coverage with service centers located at New Delhi (DL), Ghaziabad (UP), 
+                        Haridwar (UK), Nagpur (MH), Sri Ganganagar (RJ), Moga (PB), Bangalore (KA).</p>
+                    </div>
+                    
+                    <div class="contact-info">
+                        <h3>Phone Numbers</h3>
+                        <p>+91 9953025170</p>
+                        <p>+91 9599677505</p>
+                        <p>+91 9953025011</p>
+                    </div>
+                    
+                    <div class="contact-info">
+                        <h3>Online</h3>
+                        <p>Email: info@bytebus.in</p>
+                        <p>Website: <span class="external-link" onclick="window.open('https://bio.site/bytebus.in', '_blank')">https://bio.site/bytebus.in</span></p>
+                        <p>Inquiries: <span class="external-link" onclick="window.open('https://inquiry.bytebus.in/', '_blank')">https://inquiry.bytebus.in/</span></p>
+                    </div>
+                </div>
+                
+                <div class="qr-code">
+                    <img src="images/qr-code.png" alt="QR Code" onclick="window.open('https://inquiry.bytebus.in/', '_blank')">
+                    <p style="margin-top: 1rem;">
+                        <span class="external-link" onclick="window.open('https://inquiry.bytebus.in/', '_blank')" style="color: var(--primary-light);">Scan for Inquiries</span>
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 BYTE BUS LLP. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Enhanced Navigation with Smooth Scrolling
+        let isScrollingFromClick = false;
+        
+        function setActiveLink(targetId) {
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === targetId) {
+                    link.classList.add('active');
+                }
+            });
+        }
+        
+        function updateActiveLink() {
+            if (isScrollingFromClick) return;
+            
+            const sections = document.querySelectorAll('.section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+                const headerHeight = document.querySelector('.header').offsetHeight;
+                
+                if (scrollPosition >= (sectionTop - headerHeight - 50)) {
+                    current = section.id;
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        }
+        
+        // Enhanced Smooth Scrolling with Responsive Offsets
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    isScrollingFromClick = true;
+                    setActiveLink(target.id);
+                    
+                    const headerHeight = document.querySelector('.header').offsetHeight;
+                    const viewportWidth = window.innerWidth;
+                    
+                    let extraOffset;
+                    if (viewportWidth <= 767) {
+                        extraOffset = target.id === 'about' ? 60 : 30;
+                    } else if (viewportWidth <= 1023) {
+                        extraOffset = 40;
+                    } else {
+                        extraOffset = 30;
+                    }
+                    
+                    const offsetPosition = target.offsetTop - headerHeight - extraOffset;
+                    
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                    
+                    setTimeout(() => {
+                        isScrollingFromClick = false;
+                    }, 800);
+                }
+            });
+        });
+        
+        // Performance Optimized Scroll Event
+        let ticking = false;
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    if (!isScrollingFromClick) {
+                        updateActiveLink();
+                    }
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        });
+        
+        // Initialize on Load
+        window.addEventListener('load', updateActiveLink);
+        
+        // Enhanced Resize Handler for Responsive Behavior
+        let resizeTimer;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(() => {
+                updateActiveLink();
+            }, 250);
+        });
+        
+        // Optional: Scroll Animation for Elements
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+        
+        // Apply scroll animation to elements (optional)
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+        
+        // Device-specific optimization checks
+        if ('ontouchstart' in window) {
+            document.body.classList.add('touch-device');
+        }
+        
+        // Future-ready: Container Query Support Check
+        if ('container' in document.documentElement.style) {
+            document.documentElement.classList.add('container-queries-supported');
+        }

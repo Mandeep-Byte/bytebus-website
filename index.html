@@ -31,11 +31,18 @@
         }]
     }
     </script>
-   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <!-- 1. Classic fallback first (broadest compatibility) -->
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+<!-- 2. Standard PNG favicons (most common sizes) -->
 <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+
+<!-- 3. Apple/iOS specific (device-specific) -->
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<!-- 4. Web manifest last (additional metadata) -->
 <link rel="manifest" href="/site.webmanifest">
-    <link rel="icon" href="/favicon.ico" sizes="any">
     <style>
         /*
          * BYTE BUS LLP - Hybrid Responsive Architecture
